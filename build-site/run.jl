@@ -115,7 +115,8 @@ function generate_blog_html(md_file; overwrite_existing=true)
 
     @info "...and formatting it"
     try
-        run(`prettier $(html_outfile) --write --print-width 240`)
+        run(`npx prettier
+         $(html_outfile) --write --print-width 240`)
     catch
         @warn "Prettier not installed OR current html errors"
     end
@@ -177,7 +178,7 @@ function generate_blog_index(; overwrite_existing=false, template=BLOG_INDEX_TEM
     write(outfile, str)
 
     try
-        run(`prettier $(outfile) --write --print-width 360`)
+        run(`npx prettier $(outfile) --write --print-width 360`)
     catch
         @warn "Prettier not installed OR current html errors"
     end
@@ -282,7 +283,7 @@ function generate_project_index(; overwrite_existing=false, template=PROJECT_IND
     write(outfile, index_str)
 
     try
-        run(`prettier $(outfile) --write --print-width 360`)
+        run(`npx prettier $(outfile) --write --print-width 360`)
     catch
         @warn "Prettier not installed OR current html errors"
     end
